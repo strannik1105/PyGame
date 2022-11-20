@@ -1,4 +1,5 @@
 import models.players.Player
+from models.map.PlayerFieldList import PlayerFieldList
 from models.map.field import Field
 from models.players.Player import Player
 from models.players.interfaces.IPlayer import IPlayer
@@ -21,9 +22,14 @@ class FieldMovable(Field):
         return False
 
     def RemovePlayer(self):
-        self.__player = None
+        if self.__player is not None:
+            #PlayerFieldList.remove(self.__player)
+            self.__player = None
 
     def Render(self):
         if self.__player is not None:
             return self.__player.Render
         return '0'
+
+    def GetPlayer(self):
+        return self.__player

@@ -46,3 +46,7 @@ class Map:
         field = self.GetField(x, y)
         if field.MoveIn(player):
             field_old.RemovePlayer()
+            PlayerFieldList.set(player, field)
+        else:
+            if isinstance(field, FieldMovable):
+                player.AttackVictim(field.GetPlayer())
