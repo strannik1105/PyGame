@@ -48,7 +48,7 @@ class Map:
         except:
             return None
 
-    def Move(self, player: IPlayer, x: int, y: int):
+    def Move(self, player: IPlayer, x: int, y: int) -> bool:
         field_old = PlayerFieldList.get(player)
         field = self.GetField(x, y)
         if field is None:
@@ -57,6 +57,7 @@ class Map:
             field_old.RemovePlayer()
             PlayerFieldList.set(player, field)
         else:
-            if isinstance(field, FieldMovable):
-                player.AttackVictim(field.GetPlayer())
+            #if isinstance(field, FieldMovable):
+            #    player.AttackVictim(field.GetPlayer())
+            return False
         return True
