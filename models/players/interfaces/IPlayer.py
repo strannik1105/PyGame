@@ -25,6 +25,12 @@ class IPlayer(abc.ABC):
     def Attack(self, value):
         pass
 
+    @property
     @abc.abstractmethod
-    def AttackPlayer(self, player):
+    def Render(self):
+        pass
+
+    @Render.setter
+    @abc.abstractmethod
+    def Render(self, value):
         pass

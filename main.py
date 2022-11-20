@@ -1,8 +1,9 @@
-from models.players.Player import Player
+from models.map.map import Map
 # This is a sample Python script.
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from models.players.Player import Player
 
 
 def print_hi(name):
@@ -12,6 +13,10 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    map = Map(10, 5)
+    map.AddPlayer(Player('1'))
+    map.AddPlayer(Player('2'))
+    map.PrintMap()
     print_hi('PyCharm')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
