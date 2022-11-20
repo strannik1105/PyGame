@@ -1,3 +1,4 @@
+from models.Controller import Controller
 from models.map.PlayerFieldList import PlayerFieldList
 from models.map.map import Map
 # This is a sample Python script.
@@ -15,19 +16,7 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    map = Map(10, 5)
-    player1 = PlayerAttacker('1', attack=110)
-    player2 = Player('2')
-    map.AddPlayer(player1)
-    map.AddPlayer(player2)
-    while True:
-        map.PrintMap()
-        field = PlayerFieldList.get(player1)
-        print(field.x, end=' ')
-        print(field.y)
-        x = int(input())
-        y = int(input())
-        map.Move(player1, x, y)
-    print_hi('PyCharm')
+    game = Controller()
+    game.Play()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

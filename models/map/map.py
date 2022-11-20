@@ -37,16 +37,26 @@ class Map:
             print('')
 
     def GetField(self, x: int, y: int):
-        if self.__map[x][y] is not None:
-            return self.__map[x][y]
-        raise SystemExit('Out of range exception')
+        if x < 0:
+            return None
+        if y < 0:
+            return None
+        try:
+            if self.__map[x][y] is not None:
+                return self.__map[x][y]
+            return False
+        except:
+            return None
 
     def Move(self, player: IPlayer, x: int, y: int):
         field_old = PlayerFieldList.get(player)
         field = self.GetField(x, y)
+        if field is None:
+            return False
         if field.MoveIn(player):
             field_old.RemovePlayer()
             PlayerFieldList.set(player, field)
         else:
             if isinstance(field, FieldMovable):
                 player.AttackVictim(field.GetPlayer())
+        return True

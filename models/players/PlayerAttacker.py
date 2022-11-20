@@ -8,6 +8,13 @@ class PlayerAttacker(Player):
 
     def AttackVictim(self, victim: IPlayer):
         victim.Health = victim.Health - self.Attack
+        print(self.Render, end='(')
+        print(self.Attack, end=') ')
+        print('attack', end=' ')
+        print(victim.Render, end='(')
+        print(victim.Health, end=')')
+        print('')
+
         if victim.Health <= 0:
             print(victim.Render, end=' ')
             print('lose')
