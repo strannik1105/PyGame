@@ -3,10 +3,6 @@ import abc
 
 class IPlayer(abc.ABC):
 
-#    @abc.abstractmethod
-#    def __init(self, health):
-#        self.__health = health
-
     @property
     @abc.abstractmethod
     def Health(self):
@@ -27,4 +23,8 @@ class IPlayer(abc.ABC):
     @Health.setter
     @abc.abstractmethod
     def Attack(self, value):
+        pass
+
+    @abc.abstractmethod
+    def AttackPlayer(self, player):
         pass
