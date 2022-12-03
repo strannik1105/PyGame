@@ -1,13 +1,22 @@
-from models.players.Player import Player
-from models.players.interfaces.IPlayer import IPlayer
+from models.players.PlayerDamageable import PlayerDamageable
 
 
-class PlayerAttacker(Player):
+class PlayerAttacker(PlayerDamageable):
     def __init__(self, render: str, health=100, attack=20):
-        super(PlayerAttacker, self).__init__(render, health, attack)
+        self.__attack = attack
+        super(PlayerAttacker, self).__init__(render, health)
 
-    def AttackVictim(self, victim: IPlayer):
-        victim.Health = victim.Health - self.Attack
+    @property
+    def Attack(self):
+        return self.__attack
+
+    @Attack.setter
+    def Attack(self, value):
+        self.__attack = value
+
+    def AttackVictim(self, victim: PlayerDamageable):
+        #victim.Health = victim.Health - self.Attack
+        victim.Damage(self.Attack)
         print(self.Render, end='(')
         print(self.Attack, end=') ')
         print('attack', end=' ')

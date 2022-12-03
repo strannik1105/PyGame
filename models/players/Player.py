@@ -3,18 +3,16 @@ from models.players.interfaces.IPlayer import IPlayer
 
 class Player(IPlayer):
 
-    def __init__(self, render: str, health=100, attack=20):
-        self.__health = health
-        self.__attack = attack
+    def __init__(self, render: str):
         self.__render = render
 
-    @property
-    def Health(self):
-        return self.__health
+    #@property
+    #def Health(self):
+    #    return self.__health
 
-    @Health.setter
-    def Health(self, value):
-        self.__health = value
+    #@Health.setter
+    #def Health(self, value):
+    #    self.__health = value
 
     @property
     def Attack(self):
