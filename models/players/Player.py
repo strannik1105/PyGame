@@ -14,13 +14,13 @@ class Player(IPlayer):
     #def Health(self, value):
     #    self.__health = value
 
-    @property
-    def Attack(self):
-        return self.__attack
+    #@property
+    #def Attack(self):
+    #    return self.__attack
 
-    @Attack.setter
-    def Attack(self, value):
-        self.__attack = value
+    #@Attack.setter
+    #def Attack(self, value):
+    #    self.__attack = value
 
     @property
     def Render(self):
